@@ -34,11 +34,11 @@ public class Product {
         this.category = category;
     }
 
-    public BigDecimal getUnitaryTax() {
+    public BigDecimal getUnitTax() {
         return getPrice().divide(valueOf(100)).multiply(getCategory().getTaxPercentage()).setScale(2, HALF_UP);
     }
 
-    public BigDecimal getUnitaryTaxedAmount(BigDecimal unitaryTax) {
-        return getPrice().add(unitaryTax).setScale(2, HALF_UP);
+    public BigDecimal getUnitTaxedAmount() {
+        return price.add(getUnitTax()).setScale(2, HALF_UP);
     }
 }

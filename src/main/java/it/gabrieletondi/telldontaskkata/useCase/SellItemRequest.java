@@ -1,5 +1,7 @@
 package it.gabrieletondi.telldontaskkata.useCase;
 
+import it.gabrieletondi.telldontaskkata.domain.Product;
+
 import java.math.BigDecimal;
 
 import static java.math.RoundingMode.HALF_UP;
@@ -7,6 +9,13 @@ import static java.math.RoundingMode.HALF_UP;
 public class SellItemRequest {
     private int quantity;
     private String productName;
+    private Product product;
+
+    public SellItemRequest(String productName, int quantity) {
+
+        this.productName = productName;
+        this.quantity = quantity;
+    }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
@@ -14,6 +23,11 @@ public class SellItemRequest {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public void setProduct(Product product){
+
+        this.product = product;
     }
 
     public int getQuantity() {
